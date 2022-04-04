@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')
+
+// $first-color: #06387d
+// $first-color: #b84622
+// $first-color: #FB6004
+$primary-color: #1FA776
+$background-color1: #18191A
+$background-color2: #242526
+$text-color1: #F2F2F2
+$text-color2: #D9D9D9
+$text-color3: #8B8B8C
+
+*
+    box-sizing: border-box
+    outline: none
+    margin: 0
+    padding: 0
+
+body
+    background-color: $background-color1
+    color: $text-color1
+    font-family: "Open Sans", sans-serif
+    overflow: hidden
+    width: 100%
+    height: 100vh
+
+::-webkit-scrollbar
+    background-color: $background-color1
+    width: 15px
+
+::-webkit-scrollbar-thumb 
+    background-color: $primary-color
+    border: 3px solid transparent
+    border-radius: 10px
+    background-clip: content-box
+    height: auto
+
+.bi-arrow-up-circle-fill
+    fill: $primary-color
+    width: 40px
+    height: 40px
+    position: fixed
+    bottom: -50px
+    right: 15px
+    z-index: 9999
+    cursor: pointer
+    transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out
+    opacity: 0
+    &:hover
+        opacity: .7 !important
+    &:active
+        opacity: .5 !important
+
+header
+    position: relative
+    z-index: 9999
+    nav.nav-bar
+        position: fixed
+        display: flex
+        top: 0
+        width: 100%
+        height: 80px
+        background-color: transparent
+        transition: all .5s ease-in-out
+        justify-content: space-around
+        align-items: center
+        a
+            img
+                width: 50px
+                height: 35px
+                cursor: pointer
+        ul
+            display: flex
+            width: 70%
+            height: 100%
+            align-items: center
+            list-style: none
+            justify-content: space-around
+            li
+                a
+                    color: $text-color2
+                    text-decoration: none
+                    transition: all .5s ease-in-out
+                    cursor: pointer
+                    font-weight: 500
+                    &:hover
+                        color: $primary-color
+
+a.active
+    color: $primary-color !important
+
+section.intro
+    width: 100%
+    height: 100vh
+    position: relative
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    &::before
+        content: ""
+        position: fixed
+        width: 100%
+        height: 100vh
+        bottom: 0
+        top: 0
+        left: 0
+        right: 0
+        background: url("imgs/miss-zhang-jz0xIgcwyL0-unsplash.jpg") no-repeat center
+        background-size: cover
+        will-change: transform
+        z-index: -1
+    &::after
+        content: ""
+        position: fixed
+        width: 100%
+        height: 100vh
+        background-color: rgba(0, 0, 0, 0.65)
+        bottom: 0
+        top: 0
+        left: 0
+        right: 0
+        will-change: transform
+        z-index: -1
+    .intro-con
+        max-width: fit-content
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: center
+        h1
+            cursor: default
+            font-size: 64px
+            animation: opacity 1s ease-in-out 1s 1 forwards
+            opacity: 0
+            font-weight: 700
+            line-height: 56px
+            font-family: 'Satisfy', cursive !important
+            color: $primary-color
+            margin: 0 0 10px
+        div.typ-con
+            margin: 0 0 50px
+            span
+                white-space: nowrap
+                animation: blink .5s step-end infinite
+                border-right: 3px solid rgba(255, 255, 255, .5)
+                letter-spacing: 1px
+                font: normal normal 500 26px/1.5 "Poppins", sans-serif
+                // background: linear-gradient(to bottom right, #78a3eb, #fbc2eb)
+                // -webkit-background-clip: text
+                // -webkit-text-fill-color: transparent
+                color: $text-color2
+                -webkit-text-size-adjust: 100%
+                -webkit-tap-highlight-color: transparent
+                cursor: default
+        div.bu-con
+            width: 100%
+            display: flex
+            justify-content: space-around
+            align-items: center
+            perspective: 1000
+            perspective-origin: center
+            button
+                width: 150.94px
+                height: 50px
+                font-size: 17px
+                font-weight: 500
+                letter-spacing: 1px
+                text-align: center
+                cursor: pointer
+                border-radius: 5px
+                line-height: 1
+                &:hover
+                    filter: brightness(70%)
+                &:active
+                    filter: brightness(50%)
+                &:first-of-type
+                    background-color: transparent
+                    border: 2px solid $primary-color
+                    color: $primary-color
+                    div
+                        position: relative
+                        transform-style: preserve-3d
+                        transition: .5s ease-in-out
+                        &:first-child
+                            top: 8.5px
+                        &:last-child
+                            transform: rotateX(90deg)
+                            top: -25px
+                            color: transparent
+                    &:hover
+                        div
+                            &:first-child
+                                transform: rotateX(90deg)
+                                top: 25px
+                                color: transparent
+                            &:last-child
+                                transform: rotateX(0deg)
+                                top: -10px
+                                color: $primary-color
+                &:last-of-type
+                    background-color: $primary-color
+                    border: 2px solid transparent
+                    color: $text-color2
+                    div
+                        position: relative
+                        transform-style: preserve-3d
+                        transition: .5s ease-in-out
+                        &:first-child
+                            top: 8.5px
+                        &:last-child
+                            transform: rotateX(90deg)
+                            top: -25px
+                            color: transparent
+                    &:hover
+                        div
+                            &:first-child
+                                transform: rotateX(90deg)
+                                top: 25px
+                                color: transparent
+                            &:last-child
+                                transform: rotateX(0deg)
+                                top: -10px
+                                color: $text-color2
+        .bi-arrow-down
+            fill: rgba(255, 255, 255, .6)
+            width: 40px
+            height: 40px
+            position: relative
+            top: 30vh
+            z-index: 9999
+            cursor: pointer
+            transition: .4s
+            animation: down-up .5s ease-in-out infinite alternate-reverse both, opacity 1s ease-in-out 1s 1 forwards
+            opacity: 0
+            &:hover
+                fill: $primary-color
+
+@keyframes opacity
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+@keyframes blink
+    0%,
+    75%,
+    100%
+        border-right-color: rgba(255, 255, 255, .6)
+    25%
+        border-right-color: transparent
+
+@keyframes down-up
+    0%
+        top: calc( 30vh + 5px )
+    100%
+        top: calc( 30vh - 5px )
+
+section.about
+    position: relative
+    width: 100%
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-direction: column
+    background-color: $background-color1
+    div.about-con
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        h2
+            width: max-content
+            font-size: 32px
+            font-weight: 700
+            text-transform: uppercase
+            margin-bottom: 20px
+            padding-bottom: 0
+            color: $primary-color
+            position: relative
+            z-index: 2
+            cursor: default
+            opacity: 0
+            transition: opacity .5s ease-in-out
+            &:after
+                content: 'About Me'
+                position: absolute
+                width: max-content
+                top: -35px
+                color: $background-color2
+                left: calc( -161.63px / 3 )
+                z-index: -1
+                font-weight: 700
+                font-size: 52px
+                text-transform: uppercase
+        p
+            cursor: default
+            color: $text-color1
+            opacity: 0
+            transition: opacity .5s ease-in-out
+    div.details
+        display: flex
+        justify-content: center
+        align-items: center
+        ul
+            height: 50vh
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: flex-start
+            li
+                h6
+                    font-weight: bold
+                    color: $text-color1
+                    display: inline
+                    margin-right: 15px
+                p
+                    position: relative
+                    font-size: 17px
+                    font-style: italic
+                    color: $primary-color
+                    display: inline
+                    a
+                        color: $primary-color
+                        text-decoration: none
+                        transition: .5s
+                        &:hover
+                            text-decoration: underline
+                            color: $text-color3
+
+section.skills-con
+    position: relative
+    width: 100%
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-direction: column
+    background-color: $background-color1
+    section
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-direction: column
+        header
+            width: max-content
+            font-size: 32px
+            font-weight: 700
+            text-transform: uppercase
+            color: $primary-color
+            position: relative
+            z-index: 2
+            cursor: default
+            opacity: 1
+            transition: opacity .5s ease-in-out
+            &:after
+                content: 'SKILLS'
+                position: absolute
+                width: max-content
+                top: -25px
+                color: $background-color2
+                left: calc( -97.03px / 3 )
+                z-index: -1
+                font-weight: 700
+                font-size: 52px
+                text-transform: uppercase
+        span
+            cursor: default
+            color: $text-color1
+            opacity: 1
+            transition: opacity .5s ease-in-out
+    section
+        display: flex
+        align-items: center
+        justify-content: space-around
+        flex-direction: column
+        p
+            font-size: 20px
+            font-weight: bold
+        div
+            position: relative
+            width: 300px
+            height: 15px
+            background-color: $background-color2
+            border: 0
+            border-radius: 5px
+            overflow: hidden
+            margin-bottom: 25px
+            div
+                position: relative
+                width: inherit
+                height: inherit
+                background-color: $primary-color
+                border: 0
+                border-radius: 5px
+                transition: 1s
