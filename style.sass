@@ -22,7 +22,6 @@ body
     background-color: $background-color1
     color: $text-color1
     font-family: "Open Sans", sans-serif
-    overflow: hidden
     width: 100%
     height: 100vh
 
@@ -134,8 +133,6 @@ section.intro
         h1
             cursor: default
             font-size: 64px
-            animation: opacity 1s ease-in-out 1s 1 forwards
-            opacity: 0
             font-weight: 700
             line-height: 56px
             font-family: 'Satisfy', cursive !important
@@ -234,16 +231,9 @@ section.intro
             z-index: 9999
             cursor: pointer
             transition: .4s
-            animation: down-up .5s ease-in-out infinite alternate-reverse both, opacity 1s ease-in-out 1s 1 forwards
-            opacity: 0
+            animation: down-up .5s ease-in-out infinite alternate-reverse both
             &:hover
                 fill: $primary-color
-
-@keyframes opacity
-    0%
-        opacity: 0
-    100%
-        opacity: 1
 
 @keyframes blink
     0%,

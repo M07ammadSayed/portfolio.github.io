@@ -182,9 +182,6 @@ section.intro .intro-con {
 section.intro .intro-con h1 {
   cursor: default;
   font-size: 64px;
-  -webkit-animation: opacity 1s ease-in-out 1s 1 forwards;
-          animation: opacity 1s ease-in-out 1s 1 forwards;
-  opacity: 0;
   font-weight: 700;
   line-height: 56px;
   font-family: 'Satisfy', cursive !important;
@@ -335,30 +332,11 @@ section.intro .intro-con .bi-arrow-down {
   cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
-  animation: down-up .5s ease-in-out infinite alternate-reverse both, opacity 1s ease-in-out 1s 1 forwards;
-  opacity: 0;
+  animation: down-up .5s ease-in-out infinite alternate-reverse both;
 }
 
 section.intro .intro-con .bi-arrow-down:hover {
   fill: #1FA776;
-}
-
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @-webkit-keyframes blink {

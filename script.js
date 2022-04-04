@@ -34,15 +34,10 @@ window.onscroll = function () {
     const element = document.querySelectorAll("header nav.nav-bar ul li a");
     if (this.scrollY >= document.getElementById("about").offsetTop) {
         document.getElementById("bi").style.bottom = "15px";
-        document.getElementById("bi").style.opacity = "1";
-        document.querySelector("section.about h2").style.opacity = "1";
-        document.querySelector("section.about p").style.opacity = "1";
         document.querySelector("header nav.nav-bar").style.backgroundColor = "rgba(45, 48, 51, .5)";
         document.querySelector("header nav.nav-bar").style.height = "60px";
         element[0].className = "";
         element[1].className = "active";
-    } else if (this.scrollY === 0) {
-        document.body.style.overflow = "hidden";
     } else {
         document.getElementById("bi").style.bottom = "-50px";
         document.getElementById("bi").style.opacity = "0";
@@ -68,6 +63,4 @@ document.querySelector("section.intro div.intro-con svg").onclick = function () 
         top: document.getElementById("about").offsetTop,
         behavior: "smooth"
     });
-
-    document.body.style.overflow = "visible";
 };
