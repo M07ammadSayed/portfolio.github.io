@@ -22,8 +22,6 @@ body
     background-color: $background-color1
     color: $text-color1
     font-family: "Open Sans", sans-serif
-    width: 100%
-    height: 100vh
 
 ::-webkit-scrollbar
     background-color: $background-color1
@@ -36,69 +34,71 @@ body
     background-clip: content-box
     height: auto
 
-.bi-arrow-up-circle-fill
-    fill: $primary-color
-    width: 40px
-    height: 40px
-    position: fixed
-    bottom: -50px
-    right: 15px
-    z-index: 9999
-    cursor: pointer
-    transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out
-    opacity: 0
-    &:hover
-        opacity: .7 !important
-    &:active
-        opacity: .5 !important
-
-header
-    position: relative
-    z-index: 9999
-    nav.nav-bar
+div
+    .bi-arrow-up-circle-fill
+        fill: $primary-color
+        width: 40px
+        height: 40px
         position: fixed
+        bottom: -50px
+        right: 15px
+        z-index: 9999
+        cursor: pointer
+        transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out
+        opacity: 0
+        &:hover
+            opacity: .7 !important
+        &:active
+            opacity: .5 !important
+
+nav.nav-con
+    position: fixed
+    display: flex
+    top: 0
+    width: 100%
+    height: 80px
+    background-color: transparent
+    transition: .5s linear
+    justify-content: space-around
+    align-items: center
+    z-index: 9999
+    a
+        position: relative
+        height: inherit
         display: flex
-        top: 0
-        width: 100%
-        height: 80px
-        background-color: transparent
-        transition: all .5s ease-in-out
-        justify-content: space-around
+        justify-content: center
         align-items: center
-        a
-            img
-                width: 50px
-                height: 35px
+        img
+            width: 50px
+            height: 35px
+            cursor: pointer
+    ul
+        position: relative
+        display: flex
+        width: 70%
+        height: inherit
+        align-items: center
+        list-style: none
+        justify-content: space-around
+        padding: 0
+        margin: 0
+        li
+            a
+                color: $text-color2
+                text-decoration: none
+                transition: all .5s ease-in-out
                 cursor: pointer
-        ul
-            display: flex
-            width: 70%
-            height: 100%
-            align-items: center
-            list-style: none
-            justify-content: space-around
-            li
-                a
-                    color: $text-color2
-                    text-decoration: none
-                    transition: all .5s ease-in-out
-                    cursor: pointer
-                    font-weight: 500
-                    &:hover
-                        color: $primary-color
+                font-weight: 400
+                font-size: 18px
+                &:hover
+                    color: $primary-color
 
 a.active
     color: $primary-color !important
 
-section.intro
+section.intro-con
     width: 100%
     height: 100vh
-    position: relative
-    overflow: hidden
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-wrap: wrap
     &::before
         content: ""
         position: fixed
@@ -124,17 +124,18 @@ section.intro
         right: 0
         will-change: transform
         z-index: -1
-    .intro-con
-        max-width: fit-content
-        position: relative
+    .intro
+        width: 100%
+        height: 100vh
         display: flex
         flex-direction: column
+        justify-content: center
         align-items: center
         h1
             cursor: default
             font-size: 64px
             font-weight: 700
-            line-height: 56px
+            letter-spacing: 2px
             font-family: 'Satisfy', cursive !important
             color: $primary-color
             margin: 0 0 10px
@@ -146,18 +147,14 @@ section.intro
                 border-right: 3px solid rgba(255, 255, 255, .5)
                 letter-spacing: 1px
                 font: normal normal 500 26px/1.5 "Poppins", sans-serif
-                // background: linear-gradient(to bottom right, #78a3eb, #fbc2eb)
-                // -webkit-background-clip: text
-                // -webkit-text-fill-color: transparent
                 color: $text-color2
                 -webkit-text-size-adjust: 100%
                 -webkit-tap-highlight-color: transparent
                 cursor: default
         div.bu-con
-            width: 100%
+            width: 40%
             display: flex
             justify-content: space-around
-            align-items: center
             perspective: 1000
             perspective-origin: center
             button
@@ -222,18 +219,20 @@ section.intro
                                 transform: rotateX(0deg)
                                 top: -10px
                                 color: $text-color2
-        .bi-arrow-down
-            fill: rgba(255, 255, 255, .6)
-            width: 40px
-            height: 40px
+        div.go-down
             position: relative
-            top: 30vh
-            z-index: 9999
-            cursor: pointer
-            transition: .4s
-            animation: down-up .5s ease-in-out infinite alternate-reverse both
-            &:hover
-                fill: $primary-color
+            .bi-arrow-down
+                fill: rgba(255, 255, 255, .6)
+                width: 40px
+                height: 40px
+                position: relative
+                top: 25vh
+                z-index: 9999
+                cursor: pointer
+                transition: .4s
+                animation: down-up .5s ease-in-out infinite alternate-reverse both
+                &:hover
+                    fill: $primary-color
 
 @keyframes blink
     0%,
@@ -245,45 +244,41 @@ section.intro
 
 @keyframes down-up
     0%
-        top: calc( 30vh + 5px )
+        top: calc( 25vh + 5px )
     100%
-        top: calc( 30vh - 5px )
+        top: calc( 25vh - 5px )
 
-section.about
+section.about-con
     position: relative
     width: 100%
-    height: 100vh
+    height: fit-content
     display: flex
     align-items: center
-    justify-content: space-around
+    justify-content: space-between
     flex-direction: column
     background-color: $background-color1
-    div.about-con
+    padding-block-start: 85px
+    overflow: hidden
+    div.about-head
         position: relative
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
+        margin-block-end: 70px
         h2
-            width: max-content
             font-size: 32px
             font-weight: 700
             text-transform: uppercase
             margin-bottom: 20px
-            padding-bottom: 0
             color: $primary-color
             position: relative
             z-index: 2
             cursor: default
-            opacity: 0
-            transition: opacity .5s ease-in-out
+            text-align: center
             &:after
                 content: 'About Me'
                 position: absolute
-                width: max-content
+                width: fit-content
                 top: -35px
+                right: 101.19px
                 color: $background-color2
-                left: calc( -161.63px / 3 )
                 z-index: -1
                 font-weight: 700
                 font-size: 52px
@@ -291,10 +286,10 @@ section.about
         p
             cursor: default
             color: $text-color1
-            opacity: 0
-            transition: opacity .5s ease-in-out
+            animation-delay: .5s
     div.details
         display: flex
+        width: inherit
         justify-content: center
         align-items: center
         ul
@@ -303,6 +298,9 @@ section.about
             flex-direction: column
             justify-content: space-between
             align-items: flex-start
+            padding: 0
+            margin: 0
+            list-style: none
             li
                 h6
                     font-weight: bold
@@ -326,45 +324,43 @@ section.about
 section.skills-con
     position: relative
     width: 100%
-    height: 100vh
+    height: fit-content
     display: flex
-    align-items: center
-    justify-content: space-around
     flex-direction: column
+    align-items: center
     background-color: $background-color1
-    section
-        display: flex
-        align-items: center
-        justify-content: center
-        flex-direction: column
-        header
-            width: max-content
+    padding-block-start: 85px
+    overflow: hidden
+    div.skills-head
+        position: relative
+        margin-block-end: 70px
+        span
+            display: block
             font-size: 32px
             font-weight: 700
             text-transform: uppercase
+            margin-bottom: 20px
             color: $primary-color
             position: relative
             z-index: 2
             cursor: default
-            opacity: 1
-            transition: opacity .5s ease-in-out
+            text-align: center
             &:after
                 content: 'SKILLS'
                 position: absolute
                 width: max-content
                 top: -25px
                 color: $background-color2
-                left: calc( -97.03px / 3 )
+                right: 47.3175px
                 z-index: -1
                 font-weight: 700
                 font-size: 52px
                 text-transform: uppercase
-        span
+        p
             cursor: default
-            color: $text-color1
-            opacity: 1
-            transition: opacity .5s ease-in-out
-    section
+            color: $text-color2
+            animation-delay: .5s
+    div.skills-details
         display: flex
         align-items: center
         justify-content: space-around
@@ -372,6 +368,7 @@ section.skills-con
         p
             font-size: 20px
             font-weight: bold
+            color: $text-color1
         div
             position: relative
             width: 300px
@@ -381,8 +378,9 @@ section.skills-con
             border-radius: 5px
             overflow: hidden
             margin-bottom: 25px
-            div
+            span
                 position: relative
+                display: inline-block
                 width: inherit
                 height: inherit
                 background-color: $primary-color

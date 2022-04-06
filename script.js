@@ -5,7 +5,7 @@ window.onunload = function () {
 };
 
 let typed = new Typed("#typing", {
-    strings: ["Photographer", "Graphic Designer"],
+    strings: ["Photographer"],
     typeSpeed: 200,
     backSpeed: 50,
     backDelay: 500,
@@ -17,7 +17,7 @@ let typed = new Typed("#typing", {
     autoInsertCss: false
 });
 
-const element = document.querySelectorAll("header nav.nav-bar ul li a");
+const element = document.querySelectorAll("nav.nav-con ul li a");
 for(let i = 0; i < element.length; i++) {
     element[i].onclick = e=> {
         let n = 0;
@@ -31,18 +31,18 @@ for(let i = 0; i < element.length; i++) {
 };
 
 window.onscroll = function () {
-    const element = document.querySelectorAll("header nav.nav-bar ul li a");
+    const element = document.querySelectorAll("nav.nav-con ul li a");
     if (this.scrollY >= document.getElementById("about").offsetTop) {
         document.getElementById("bi").style.bottom = "15px";
-        document.querySelector("header nav.nav-bar").style.backgroundColor = "rgba(45, 48, 51, .5)";
-        document.querySelector("header nav.nav-bar").style.height = "60px";
+        document.querySelector("nav.nav-con").style.backgroundColor = "rgba(45, 48, 51, .5)";
+        document.querySelector("nav.nav-con").style.height = "60px";
         element[0].className = "";
         element[1].className = "active";
     } else {
         document.getElementById("bi").style.bottom = "-50px";
         document.getElementById("bi").style.opacity = "0";
-        document.querySelector("header nav.nav-bar").style.backgroundColor = "transparent";
-        document.querySelector("header nav.nav-bar").style.height = "80px";
+        document.querySelector("nav.nav-con").style.backgroundColor = "transparent";
+        document.querySelector("nav.nav-con").style.height = "80px";
     }
 
     if (this.scrollY >= document.getElementById("skills").offsetTop) {
@@ -58,9 +58,11 @@ document.getElementById("bi").onclick = function () {
     });
 };
 
-document.querySelector("section.intro div.intro-con svg").onclick = function () {
+document.querySelector("section.intro-con div.intro div svg").onclick = function () {
     window.scroll({
         top: document.getElementById("about").offsetTop,
         behavior: "smooth"
     });
 };
+
+new WOW().init();

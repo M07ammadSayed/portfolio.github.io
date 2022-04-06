@@ -13,9 +13,6 @@ body {
   background-color: #18191A;
   color: #F2F2F2;
   font-family: "Open Sans", sans-serif;
-  overflow: hidden;
-  width: 100%;
-  height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -31,7 +28,7 @@ body {
   height: auto;
 }
 
-.bi-arrow-up-circle-fill {
+div .bi-arrow-up-circle-fill {
   fill: #1FA776;
   width: 40px;
   height: 40px;
@@ -47,20 +44,15 @@ body {
   opacity: 0;
 }
 
-.bi-arrow-up-circle-fill:hover {
+div .bi-arrow-up-circle-fill:hover {
   opacity: .7 !important;
 }
 
-.bi-arrow-up-circle-fill:active {
+div .bi-arrow-up-circle-fill:active {
   opacity: .5 !important;
 }
 
-header {
-  position: relative;
-  z-index: 9999;
-}
-
-header nav.nav-bar {
+nav.nav-con {
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -69,57 +61,19 @@ header nav.nav-bar {
   width: 100%;
   height: 80px;
   background-color: transparent;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: .5s linear;
+  transition: .5s linear;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 9999;
 }
 
-header nav.nav-bar a img {
-  width: 50px;
-  height: 35px;
-  cursor: pointer;
-}
-
-header nav.nav-bar ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 70%;
-  height: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  list-style: none;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-header nav.nav-bar ul li a {
-  color: #D9D9D9;
-  text-decoration: none;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-header nav.nav-bar ul li a:hover {
-  color: #1FA776;
-}
-
-a.active {
-  color: #1FA776 !important;
-}
-
-section.intro {
-  width: 100%;
-  height: 100vh;
+nav.nav-con a {
   position: relative;
-  overflow: hidden;
+  height: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,11 +83,55 @@ section.intro {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
-section.intro::before {
+nav.nav-con a img {
+  width: 50px;
+  height: 35px;
+  cursor: pointer;
+}
+
+nav.nav-con ul {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  height: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+nav.nav-con ul li a {
+  color: #D9D9D9;
+  text-decoration: none;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+nav.nav-con ul li a:hover {
+  color: #1FA776;
+}
+
+a.active {
+  color: #1FA776 !important;
+}
+
+section.intro-con {
+  width: 100%;
+  height: 100vh;
+}
+
+section.intro-con::before {
   content: "";
   position: fixed;
   width: 100%;
@@ -148,7 +146,7 @@ section.intro::before {
   z-index: -1;
 }
 
-section.intro::after {
+section.intro-con::after {
   content: "";
   position: fixed;
   width: 100%;
@@ -162,11 +160,9 @@ section.intro::after {
   z-index: -1;
 }
 
-section.intro .intro-con {
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
+section.intro-con .intro {
+  width: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,26 +170,29 @@ section.intro .intro-con {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-section.intro .intro-con h1 {
+section.intro-con .intro h1 {
   cursor: default;
   font-size: 64px;
   font-weight: 700;
-  line-height: 56px;
+  letter-spacing: 2px;
   font-family: 'Satisfy', cursive !important;
   color: #1FA776;
   margin: 0 0 10px;
 }
 
-section.intro .intro-con div.typ-con {
+section.intro-con .intro div.typ-con {
   margin: 0 0 50px;
 }
 
-section.intro .intro-con div.typ-con span {
+section.intro-con .intro div.typ-con span {
   white-space: nowrap;
   -webkit-animation: blink .5s step-end infinite;
           animation: blink .5s step-end infinite;
@@ -206,23 +205,20 @@ section.intro .intro-con div.typ-con span {
   cursor: default;
 }
 
-section.intro .intro-con div.bu-con {
-  width: 100%;
+section.intro-con .intro div.bu-con {
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-perspective: 1000;
           perspective: 1000;
   -webkit-perspective-origin: center;
           perspective-origin: center;
 }
 
-section.intro .intro-con div.bu-con button {
+section.intro-con .intro div.bu-con button {
   width: 150.94px;
   height: 50px;
   font-size: 17px;
@@ -234,23 +230,23 @@ section.intro .intro-con div.bu-con button {
   line-height: 1;
 }
 
-section.intro .intro-con div.bu-con button:hover {
+section.intro-con .intro div.bu-con button:hover {
   -webkit-filter: brightness(70%);
           filter: brightness(70%);
 }
 
-section.intro .intro-con div.bu-con button:active {
+section.intro-con .intro div.bu-con button:active {
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
 }
 
-section.intro .intro-con div.bu-con button:first-of-type {
+section.intro-con .intro div.bu-con button:first-of-type {
   background-color: transparent;
   border: 2px solid #1FA776;
   color: #1FA776;
 }
 
-section.intro .intro-con div.bu-con button:first-of-type div {
+section.intro-con .intro div.bu-con button:first-of-type div {
   position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -258,38 +254,38 @@ section.intro .intro-con div.bu-con button:first-of-type div {
   transition: .5s ease-in-out;
 }
 
-section.intro .intro-con div.bu-con button:first-of-type div:first-child {
+section.intro-con .intro div.bu-con button:first-of-type div:first-child {
   top: 8.5px;
 }
 
-section.intro .intro-con div.bu-con button:first-of-type div:last-child {
+section.intro-con .intro div.bu-con button:first-of-type div:last-child {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   top: -25px;
   color: transparent;
 }
 
-section.intro .intro-con div.bu-con button:first-of-type:hover div:first-child {
+section.intro-con .intro div.bu-con button:first-of-type:hover div:first-child {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   top: 25px;
   color: transparent;
 }
 
-section.intro .intro-con div.bu-con button:first-of-type:hover div:last-child {
+section.intro-con .intro div.bu-con button:first-of-type:hover div:last-child {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   top: -10px;
   color: #1FA776;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type {
+section.intro-con .intro div.bu-con button:last-of-type {
   background-color: #1FA776;
   border: 2px solid transparent;
   color: #D9D9D9;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type div {
+section.intro-con .intro div.bu-con button:last-of-type div {
   position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -297,37 +293,41 @@ section.intro .intro-con div.bu-con button:last-of-type div {
   transition: .5s ease-in-out;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type div:first-child {
+section.intro-con .intro div.bu-con button:last-of-type div:first-child {
   top: 8.5px;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type div:last-child {
+section.intro-con .intro div.bu-con button:last-of-type div:last-child {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   top: -25px;
   color: transparent;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type:hover div:first-child {
+section.intro-con .intro div.bu-con button:last-of-type:hover div:first-child {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   top: 25px;
   color: transparent;
 }
 
-section.intro .intro-con div.bu-con button:last-of-type:hover div:last-child {
+section.intro-con .intro div.bu-con button:last-of-type:hover div:last-child {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   top: -10px;
   color: #D9D9D9;
 }
 
-section.intro .intro-con .bi-arrow-down {
+section.intro-con .intro div.go-down {
+  position: relative;
+}
+
+section.intro-con .intro div.go-down .bi-arrow-down {
   fill: rgba(255, 255, 255, 0.6);
   width: 40px;
   height: 40px;
   position: relative;
-  top: 30vh;
+  top: 25vh;
   z-index: 9999;
   cursor: pointer;
   -webkit-transition: .4s;
@@ -335,7 +335,7 @@ section.intro .intro-con .bi-arrow-down {
   animation: down-up .5s ease-in-out infinite alternate-reverse both;
 }
 
-section.intro .intro-con .bi-arrow-down:hover {
+section.intro-con .intro div.go-down .bi-arrow-down:hover {
   fill: #1FA776;
 }
 
@@ -363,103 +363,92 @@ section.intro .intro-con .bi-arrow-down:hover {
 
 @-webkit-keyframes down-up {
   0% {
-    top: calc( 30vh + 5px);
+    top: calc( 25vh + 5px);
   }
   100% {
-    top: calc( 30vh - 5px);
+    top: calc( 25vh - 5px);
   }
 }
 
 @keyframes down-up {
   0% {
-    top: calc( 30vh + 5px);
+    top: calc( 25vh + 5px);
   }
   100% {
-    top: calc( 30vh - 5px);
+    top: calc( 25vh - 5px);
   }
 }
 
-section.about {
+section.about-con {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #18191A;
+  -webkit-padding-before: 85px;
+          padding-block-start: 85px;
+  overflow: hidden;
 }
 
-section.about div.about-con {
+section.about-con div.about-head {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-margin-after: 70px;
+          margin-block-end: 70px;
 }
 
-section.about div.about-con h2 {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+section.about-con div.about-head h2 {
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
-  padding-bottom: 0;
   color: #1FA776;
   position: relative;
   z-index: 2;
   cursor: default;
-  opacity: 0;
-  -webkit-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
+  text-align: center;
 }
 
-section.about div.about-con h2:after {
+section.about-con div.about-head h2:after {
   content: 'About Me';
   position: absolute;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   top: -35px;
+  right: 101.19px;
   color: #242526;
-  left: calc( -161.63px / 3);
   z-index: -1;
   font-weight: 700;
   font-size: 52px;
   text-transform: uppercase;
 }
 
-section.about div.about-con p {
+section.about-con div.about-head p {
   cursor: default;
   color: #F2F2F2;
-  opacity: 0;
-  -webkit-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
 }
 
-section.about div.details {
+section.about-con div.details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: inherit;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -468,7 +457,7 @@ section.about div.details {
           align-items: center;
 }
 
-section.about div.details ul {
+section.about-con div.details ul {
   height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -483,16 +472,19 @@ section.about div.details ul {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-section.about div.details ul li h6 {
+section.about-con div.details ul li h6 {
   font-weight: bold;
   color: #F2F2F2;
   display: inline;
   margin-right: 15px;
 }
 
-section.about div.details ul li p {
+section.about-con div.details ul li p {
   position: relative;
   font-size: 17px;
   font-style: italic;
@@ -500,14 +492,14 @@ section.about div.details ul li p {
   display: inline;
 }
 
-section.about div.details ul li p a {
+section.about-con div.details ul li p a {
   color: #1FA776;
   text-decoration: none;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
-section.about div.details ul li p a:hover {
+section.about-con div.details ul li p a:hover {
   text-decoration: underline;
   color: #8B8B8C;
 }
@@ -515,55 +507,45 @@ section.about div.details ul li p a:hover {
 section.skills-con {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #18191A;
+  -webkit-padding-before: 85px;
+          padding-block-start: 85px;
+  overflow: hidden;
 }
 
-section.skills-con section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+section.skills-con div.skills-head {
+  position: relative;
+  -webkit-margin-after: 70px;
+          margin-block-end: 70px;
 }
 
-section.skills-con section header {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+section.skills-con div.skills-head span {
+  display: block;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: 20px;
   color: #1FA776;
   position: relative;
   z-index: 2;
   cursor: default;
-  opacity: 1;
-  -webkit-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
+  text-align: center;
 }
 
-section.skills-con section header:after {
+section.skills-con div.skills-head span:after {
   content: 'SKILLS';
   position: absolute;
   width: -webkit-max-content;
@@ -571,22 +553,21 @@ section.skills-con section header:after {
   width: max-content;
   top: -25px;
   color: #242526;
-  left: calc( -97.03px / 3);
+  right: 47.3175px;
   z-index: -1;
   font-weight: 700;
   font-size: 52px;
   text-transform: uppercase;
 }
 
-section.skills-con section span {
+section.skills-con div.skills-head p {
   cursor: default;
-  color: #F2F2F2;
-  opacity: 1;
-  -webkit-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
+  color: #D9D9D9;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
 }
 
-section.skills-con section {
+section.skills-con div.skills-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -601,12 +582,13 @@ section.skills-con section {
           flex-direction: column;
 }
 
-section.skills-con section p {
+section.skills-con div.skills-details p {
   font-size: 20px;
   font-weight: bold;
+  color: #F2F2F2;
 }
 
-section.skills-con section div {
+section.skills-con div.skills-details div {
   position: relative;
   width: 300px;
   height: 15px;
@@ -617,8 +599,9 @@ section.skills-con section div {
   margin-bottom: 25px;
 }
 
-section.skills-con section div div {
+section.skills-con div.skills-details div span {
   position: relative;
+  display: inline-block;
   width: inherit;
   height: inherit;
   background-color: #1FA776;
