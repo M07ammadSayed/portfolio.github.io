@@ -2,9 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  outline: none;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  outline: none !important;
   margin: 0;
   padding: 0;
 }
@@ -12,7 +12,7 @@
 body {
   background-color: #18191A;
   color: #F2F2F2;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 ::-webkit-scrollbar {
@@ -21,34 +21,43 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1FA776;
+  background-color: #b84622;
   border: 3px solid transparent;
   border-radius: 10px;
   background-clip: content-box;
   height: auto;
 }
 
-div .bi-arrow-up-circle-fill {
-  fill: #1FA776;
-  width: 40px;
-  height: 40px;
+div.go-up {
   position: fixed;
   bottom: -50px;
   right: 15px;
+  -webkit-transition: opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
+  transition: opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
+  transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out;
+  transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
+  opacity: 1;
+  z-index: 9999;
+}
+
+div.go-up svg {
+  color: #b84622;
+  width: 40px;
+  height: 40px;
   z-index: 9999;
   cursor: pointer;
   -webkit-transition: opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
   transition: opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
   transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out;
   transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out, -webkit-filter .2s ease-in-out;
-  opacity: 0;
+  opacity: 1;
 }
 
-div .bi-arrow-up-circle-fill:hover {
+div.go-up svg:hover {
   opacity: .7 !important;
 }
 
-div .bi-arrow-up-circle-fill:active {
+div.go-up svg:active {
   opacity: .5 !important;
 }
 
@@ -114,19 +123,20 @@ nav.nav-con ul li a {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
   cursor: pointer;
-  font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 nav.nav-con ul li a:hover {
-  color: #1FA776;
+  color: #b84622;
 }
 
 a.active {
-  color: #1FA776 !important;
+  color: #b84622 !important;
 }
 
 section.intro-con {
+  position: relative;
   width: 100%;
   height: 100vh;
 }
@@ -180,12 +190,12 @@ section.intro-con .intro {
 
 section.intro-con .intro h1 {
   cursor: default;
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 700;
   letter-spacing: 2px;
   font-family: 'Satisfy', cursive !important;
-  color: #1FA776;
-  margin: 0 0 10px;
+  color: #b84622;
+  margin: 0 0 24px;
 }
 
 section.intro-con .intro div.typ-con {
@@ -242,8 +252,8 @@ section.intro-con .intro div.bu-con button:active {
 
 section.intro-con .intro div.bu-con button:first-of-type {
   background-color: transparent;
-  border: 2px solid #1FA776;
-  color: #1FA776;
+  border: 2px solid #b84622;
+  color: #b84622;
 }
 
 section.intro-con .intro div.bu-con button:first-of-type div {
@@ -276,11 +286,11 @@ section.intro-con .intro div.bu-con button:first-of-type:hover div:last-child {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   top: -10px;
-  color: #1FA776;
+  color: #b84622;
 }
 
 section.intro-con .intro div.bu-con button:last-of-type {
-  background-color: #1FA776;
+  background-color: #b84622;
   border: 2px solid transparent;
   color: #D9D9D9;
 }
@@ -320,6 +330,7 @@ section.intro-con .intro div.bu-con button:last-of-type:hover div:last-child {
 
 section.intro-con .intro div.go-down {
   position: relative;
+  top: 12vh;
 }
 
 section.intro-con .intro div.go-down .bi-arrow-down {
@@ -327,7 +338,6 @@ section.intro-con .intro div.go-down .bi-arrow-down {
   width: 40px;
   height: 40px;
   position: relative;
-  top: 25vh;
   z-index: 9999;
   cursor: pointer;
   -webkit-transition: .4s;
@@ -336,7 +346,7 @@ section.intro-con .intro div.go-down .bi-arrow-down {
 }
 
 section.intro-con .intro div.go-down .bi-arrow-down:hover {
-  fill: #1FA776;
+  fill: #b84622;
 }
 
 @-webkit-keyframes blink {
@@ -363,19 +373,19 @@ section.intro-con .intro div.go-down .bi-arrow-down:hover {
 
 @-webkit-keyframes down-up {
   0% {
-    top: calc( 25vh + 5px);
+    top: calc( 12vh + 5px);
   }
   100% {
-    top: calc( 25vh - 5px);
+    top: calc( 12vh - 5px);
   }
 }
 
 @keyframes down-up {
   0% {
-    top: calc( 25vh + 5px);
+    top: calc( 12vh + 5px);
   }
   100% {
-    top: calc( 25vh - 5px);
+    top: calc( 12vh - 5px);
   }
 }
 
@@ -399,8 +409,8 @@ section.about-con {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #18191A;
-  -webkit-padding-before: 85px;
-          padding-block-start: 85px;
+  -webkit-padding-before: 200px;
+          padding-block-start: 200px;
   overflow: hidden;
 }
 
@@ -415,7 +425,7 @@ section.about-con div.about-head h2 {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #1FA776;
+  color: #b84622;
   position: relative;
   z-index: 2;
   cursor: default;
@@ -425,16 +435,19 @@ section.about-con div.about-head h2 {
 section.about-con div.about-head h2:after {
   content: 'About Me';
   position: absolute;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   top: -35px;
-  right: 101.19px;
   color: #242526;
   z-index: -1;
   font-weight: 700;
   font-size: 52px;
   text-transform: uppercase;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section.about-con div.about-head p {
@@ -488,12 +501,12 @@ section.about-con div.details ul li p {
   position: relative;
   font-size: 17px;
   font-style: italic;
-  color: #1FA776;
+  color: #b84622;
   display: inline;
 }
 
 section.about-con div.details ul li p a {
-  color: #1FA776;
+  color: #b84622;
   text-decoration: none;
   -webkit-transition: .5s;
   transition: .5s;
@@ -521,8 +534,8 @@ section.skills-con {
       -ms-flex-align: center;
           align-items: center;
   background-color: #18191A;
-  -webkit-padding-before: 85px;
-          padding-block-start: 85px;
+  -webkit-padding-before: 200px;
+          padding-block-start: 200px;
   overflow: hidden;
 }
 
@@ -538,7 +551,7 @@ section.skills-con div.skills-head span {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #1FA776;
+  color: #b84622;
   position: relative;
   z-index: 2;
   cursor: default;
@@ -546,18 +559,21 @@ section.skills-con div.skills-head span {
 }
 
 section.skills-con div.skills-head span:after {
-  content: 'SKILLS';
+  content: 'Skills';
   position: absolute;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  top: -25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  top: -35px;
   color: #242526;
-  right: 47.3175px;
   z-index: -1;
   font-weight: 700;
   font-size: 52px;
   text-transform: uppercase;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section.skills-con div.skills-head p {
@@ -604,7 +620,7 @@ section.skills-con div.skills-details div span {
   display: inline-block;
   width: inherit;
   height: inherit;
-  background-color: #1FA776;
+  background-color: #b84622;
   border: 0;
   border-radius: 5px;
   -webkit-transition: 1s;

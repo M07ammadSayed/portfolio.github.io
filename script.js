@@ -5,7 +5,7 @@ window.onunload = function () {
 };
 
 let typed = new Typed("#typing", {
-    strings: ["Photographer"],
+    strings: ["Photographer", "Developer"],
     typeSpeed: 200,
     backSpeed: 50,
     backDelay: 500,
@@ -34,6 +34,7 @@ window.onscroll = function () {
     const element = document.querySelectorAll("nav.nav-con ul li a");
     if (this.scrollY >= document.getElementById("about").offsetTop) {
         document.getElementById("bi").style.bottom = "15px";
+        document.getElementById("bi").style.opacity = "1";
         document.querySelector("nav.nav-con").style.backgroundColor = "rgba(45, 48, 51, .5)";
         document.querySelector("nav.nav-con").style.height = "60px";
         element[0].className = "";

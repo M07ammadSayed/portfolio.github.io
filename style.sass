@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')
 
-// $first-color: #06387d
-// $first-color: #b84622
-// $first-color: #FB6004
-$primary-color: #1FA776
+// $primary-color: #06387d
+$primary-color: #b84622
+// $primary-color: #FB6004
+// $primary-color: #1FA776
 $background-color1: #18191A
 $background-color2: #242526
 $text-color1: #F2F2F2
@@ -13,15 +13,15 @@ $text-color2: #D9D9D9
 $text-color3: #8B8B8C
 
 *
-    box-sizing: border-box
-    outline: none
+    box-sizing: border-box !important
+    outline: none !important
     margin: 0
     padding: 0
 
 body
     background-color: $background-color1
     color: $text-color1
-    font-family: "Open Sans", sans-serif
+    font-family: "Open Sans", sans-serif !important
 
 ::-webkit-scrollbar
     background-color: $background-color1
@@ -34,18 +34,21 @@ body
     background-clip: content-box
     height: auto
 
-div
-    .bi-arrow-up-circle-fill
-        fill: $primary-color
+div.go-up
+    position: fixed
+    bottom: -50px
+    right: 15px
+    transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out
+    opacity: 1
+    z-index: 9999
+    svg
+        color: $primary-color
         width: 40px
         height: 40px
-        position: fixed
-        bottom: -50px
-        right: 15px
         z-index: 9999
         cursor: pointer
         transition: filter .2s ease-in-out, opacity .5s ease-in-out, bottom .5s ease-in-out
-        opacity: 0
+        opacity: 1
         &:hover
             opacity: .7 !important
         &:active
@@ -88,8 +91,8 @@ nav.nav-con
                 text-decoration: none
                 transition: all .5s ease-in-out
                 cursor: pointer
-                font-weight: 400
-                font-size: 18px
+                font-size: 17px
+                font-weight: bold
                 &:hover
                     color: $primary-color
 
@@ -97,6 +100,7 @@ a.active
     color: $primary-color !important
 
 section.intro-con
+    position: relative
     width: 100%
     height: 100vh
     &::before
@@ -133,12 +137,12 @@ section.intro-con
         align-items: center
         h1
             cursor: default
-            font-size: 64px
+            font-size: 72px
             font-weight: 700
             letter-spacing: 2px
             font-family: 'Satisfy', cursive !important
             color: $primary-color
-            margin: 0 0 10px
+            margin: 0 0 24px
         div.typ-con
             margin: 0 0 50px
             span
@@ -221,12 +225,12 @@ section.intro-con
                                 color: $text-color2
         div.go-down
             position: relative
+            top: 12vh
             .bi-arrow-down
                 fill: rgba(255, 255, 255, .6)
                 width: 40px
                 height: 40px
                 position: relative
-                top: 25vh
                 z-index: 9999
                 cursor: pointer
                 transition: .4s
@@ -244,9 +248,9 @@ section.intro-con
 
 @keyframes down-up
     0%
-        top: calc( 25vh + 5px )
+        top: calc( 12vh + 5px )
     100%
-        top: calc( 25vh - 5px )
+        top: calc( 12vh - 5px )
 
 section.about-con
     position: relative
@@ -257,7 +261,7 @@ section.about-con
     justify-content: space-between
     flex-direction: column
     background-color: $background-color1
-    padding-block-start: 85px
+    padding-block-start: 200px
     overflow: hidden
     div.about-head
         position: relative
@@ -275,14 +279,15 @@ section.about-con
             &:after
                 content: 'About Me'
                 position: absolute
-                width: fit-content
+                display: flex
+                width: 100%
                 top: -35px
-                right: 101.19px
                 color: $background-color2
                 z-index: -1
                 font-weight: 700
                 font-size: 52px
                 text-transform: uppercase
+                justify-content: center
         p
             cursor: default
             color: $text-color1
@@ -329,7 +334,7 @@ section.skills-con
     flex-direction: column
     align-items: center
     background-color: $background-color1
-    padding-block-start: 85px
+    padding-block-start: 200px
     overflow: hidden
     div.skills-head
         position: relative
@@ -346,16 +351,17 @@ section.skills-con
             cursor: default
             text-align: center
             &:after
-                content: 'SKILLS'
+                content: 'Skills'
                 position: absolute
-                width: max-content
-                top: -25px
+                display: flex
+                width: 100%
+                top: -35px
                 color: $background-color2
-                right: 47.3175px
                 z-index: -1
                 font-weight: 700
                 font-size: 52px
                 text-transform: uppercase
+                justify-content: center
         p
             cursor: default
             color: $text-color2
